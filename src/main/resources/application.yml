@@ -1,0 +1,11 @@
+micronaut:
+  application:
+    name: micronautDualprotocol
+  server:
+    port: 8080
+    http-version: 2.0
+    dual-protocol: true
+  ssl:
+    enabled: true
+    port: 8443
+    build-self-signed: true

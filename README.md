@@ -1,4 +1,4 @@
-#How to reproduce the issue?
+# How to reproduce the issue?
 
 1. Run the main class in [Application.java](src/main/java/com/example/Application.java)
 2. Run a couple of curl calls
@@ -11,5 +11,5 @@
 |`curl -H "Content-type:application/json" -X POST http://localhost:8080/hello -d "hello"` | Hangs
 
 
-##Conclusion
+## Conclusion
 Post calls to http port with http2 enabled are hanging

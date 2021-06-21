@@ -1,17 +1,15 @@
-<<<<<<< HEAD
-# Micronaut-dualprotocol
-=======
-## Micronaut 2.5.6 Documentation
+#How to reproduce the issue?
 
-- [User Guide](https://docs.micronaut.io/2.5.6/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.5.6/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.5.6/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+1. Run the main class in [Application.java](src/main/java/com/example/Application.java)
+2. Run a couple of curl calls
 
----
+| Curl call | Result |
+|-----------|--------|
+|`curl -X GET localhost:8080/hello` | OK                                                            
+|`curl -k -X GET https://localhost:8443/hello` | OK                                                 
+|`curl -H "Content-type:application/json" -k -X POST https://localhost:8443/hello -d "hello"` | OK  
+|`curl -H "Content-type:application/json" -X POST http://localhost:8080/hello -d "hello"` | Hangs
 
-## Feature http-client documentation
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
->>>>>>> Add minimal Micronaut application with dual protocol enabled
+##Conclusion
+Post calls to http port with http2 enabled are hanging
